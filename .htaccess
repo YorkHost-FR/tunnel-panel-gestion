@@ -1,0 +1,20 @@
+# Active le moteur de réécriture d'URL
+RewriteEngine On
+
+# Forcer HTTPS (décommenter si ton hébergement supporte SSL)
+# RewriteCond %{HTTPS} !=on
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Supprime le .php des URL
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+# Interdire l’accès aux fichiers sensibles
+<FilesMatch "(^\.htaccess|config\.php|functions\.php)">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Empêcher l'affichage du contenu des dossiers
+Options -Indexes
