@@ -1,0 +1,10 @@
+{
+    "active": false,
+    "use_ipsec": true,
+    "tunnel_type": "EOIP",
+    "tunnel_id": 20391,
+    "ipsec_id": 20391,
+    "destination_ip": "",
+    "allow_fast_path": false,
+    "mtu": 1360
+}

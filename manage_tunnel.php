@@ -173,6 +173,12 @@ include 'header.php';
 
 
             <p><strong>ID du Tunnel :</strong> <?= $tunnel_state['tunnel_id']; ?></p>
+            <?php if ($tunnel_state['use_ipsec']) : ?>
+    <div class="alert alert-info mt-3">
+        <strong>IPSec Secret :</strong> <?= htmlspecialchars($tunnel_state['ipsec_secret']); ?>
+    </div>
+<?php endif; ?>
+
 
             <?php if ($tunnel_state['use_ipsec']): ?>
 
