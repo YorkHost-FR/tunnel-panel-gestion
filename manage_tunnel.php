@@ -37,7 +37,8 @@ if (!is_dir("tunnels")) {
 }
 
 // Liste des types de tunnels disponibles (EOIP par défaut)
-$tunnel_types = ['EOIP', 'GRE', 'VXLAN'];
+$tunnel_types = ['EOIP'];
+//$tunnel_types = ['EOIP', 'GRE', 'VXLAN'];
 
 // Définition des valeurs par défaut
 $tunnel_state = [
@@ -148,7 +149,7 @@ include 'header.php';
             <h4 class="card-title">Tunnel #<?= htmlspecialchars($tunnel_id); ?></h4>
             
             <form method="post">
-                <label for="tunnel_type" class="form-label">Type de Tunnel :</label>
+                <label for="tunnel_type" class="form-label">Type de Tunnel : - ACTUELLEMENT UNIQUEMENT L'EOIP EST DISPONIBLE ICI POUR UN AUTRE TYPE DE TUNNEL FAIRE UN TICKET.</label>
                 <select name="tunnel_type" id="tunnel_type" class="form-select" onchange="this.form.submit()">
                     <?php foreach ($tunnel_types as $type): ?>
                         <option value="<?= $type; ?>" <?= ($tunnel_state['tunnel_type'] === $type) ? 'selected' : ''; ?>>
