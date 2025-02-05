@@ -172,8 +172,9 @@ include 'header.php';
             <hr>
 
 
-            <p><strong>ID du Tunnel :</strong> <?= $tunnel_state['tunnel_id']; ?></p>
-
+    <div class="alert alert-info mt-3">
+        <strong>ID du Tunnel :</strong> <?= htmlspecialchars($tunnel_state['tunnel_id']); ?>
+    </div>
 
 
             <?php if ($tunnel_state['use_ipsec']): ?>
@@ -196,11 +197,6 @@ include 'header.php';
         </span>
     </p>
 
-    <form method="post">
-        <button type="submit" name="toggle_ipsec" class="btn btn-lg <?= $tunnel_state['use_ipsec'] ? 'btn-warning' : 'btn-primary'; ?>">
-            <?= $tunnel_state['use_ipsec'] ? 'Désactiver' : 'Activer'; ?> IPSec
-        </button>
-    </form>
     <?php if ($tunnel_state['use_ipsec']) : ?>
     <div class="alert alert-info mt-3">
         <strong>IPSec Secret :</strong> <?= htmlspecialchars($tunnel_state['tunnel_id']); ?>
@@ -212,6 +208,12 @@ include 'header.php';
         </div>
     <?php endif; ?>
 <?php endif; ?>
+<form method="post">
+        <button type="submit" name="toggle_ipsec" class="btn btn-lg <?= $tunnel_state['use_ipsec'] ? 'btn-warning' : 'btn-primary'; ?>">
+            <?= $tunnel_state['use_ipsec'] ? 'Désactiver' : 'Activer'; ?> IPSec
+        </button>
+    </form>
+
 
 
             <hr>
