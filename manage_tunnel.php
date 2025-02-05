@@ -173,16 +173,13 @@ include 'header.php';
 
 
             <p><strong>ID du Tunnel :</strong> <?= $tunnel_state['tunnel_id']; ?></p>
-            <?php if ($tunnel_state['use_ipsec']) : ?>
-    <div class="alert alert-info mt-3">
-        <strong>IPSec Secret :</strong> <?= htmlspecialchars($tunnel_state['ipsec_secret']); ?>
-    </div>
-<?php endif; ?>
+
 
 
             <?php if ($tunnel_state['use_ipsec']): ?>
 
 <?php endif; ?>
+
 
 
             <form method="post">
@@ -204,7 +201,11 @@ include 'header.php';
             <?= $tunnel_state['use_ipsec'] ? 'Désactiver' : 'Activer'; ?> IPSec
         </button>
     </form>
-
+    <?php if ($tunnel_state['use_ipsec']) : ?>
+    <div class="alert alert-info mt-3">
+        <strong>IPSec Secret :</strong> <?= htmlspecialchars($tunnel_state['tunnel_id']); ?>
+    </div>
+<?php endif; ?>
     <?php if ($tunnel_state['use_ipsec']): ?>
         <div class="alert alert-warning mt-3">
             ⚠️ IPSec est activé ! Assurez-vous que <strong>Allow Fast Path</strong> reste <strong>désactivé</strong> pour éviter les problèmes de connexion.
