@@ -15,7 +15,7 @@ $tunnel_id = intval($_GET['id']);
 $tunnel_state_file = "tunnels/tunnel_$tunnel_id.json";
 // Valeurs par défaut si le fichier n'existe pas
 $default_tunnel_state = [
-    'active' => true,
+    'active' => false,
     'use_ipsec' => true,
     'tunnel_type' => 'EOIP',
     'tunnel_id' => $tunnel_id,
